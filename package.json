@@ -1,0 +1,38 @@
+{
+  "name": "privacy-dca-bot",
+  "version": "1.0.0",
+  "description": "Privacy-preserving DCA bot using Zama FHEVM protocol",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:contracts\"",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:contracts": "forge build --watch",
+    "build": "forge build && cd frontend && npm run build",
+    "test": "forge test",
+    "deploy": "forge script scripts/Deploy.s.sol --rpc-url $RPC_URL --broadcast --verify",
+    "deploy:testnet": "forge script scripts/Deploy.s.sol --rpc-url $TESTNET_RPC_URL --broadcast --verify",
+    "install:frontend": "cd frontend && npm install",
+    "install:contracts": "forge install"
+  },
+  "keywords": [
+    "fhe",
+    "privacy",
+    "dca",
+    "defi",
+    "zama",
+    "fhevm",
+    "blockchain"
+  ],
+  "author": "Privacy DCA Bot Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@foundry-rs/forge-std": "^1.9.0",
+    "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.0.0",
+    "@chainlink/contracts": "^0.8.0",
+    "@fhevm/solidity": "^0.3.0",
+    "@zama-fhe/relayer-sdk": "^0.3.0"
+  }
+}
